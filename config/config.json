@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "sql5522015",
+    "password": "h7v71GxtR3",
+    "database": "sql5522015",
+    "host": "sql5.freemysqlhosting.net",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "root",
+    "password": null,
+    "database": "database_test",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "root",
+    "password": null,
+    "database": "database_production",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  }
+}
