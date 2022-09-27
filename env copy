@@ -1,0 +1,6 @@
+DB_HOST=sql5.freemysqlhosting.net
+DB_USER=sql5522015
+DB_NAME=sql5522015
+DB_PASSWORD=h7v71GxtR3
+DB_PORT=3306
+DB_DIALECT=mysql
