@@ -9,6 +9,8 @@ module.exports = {
      * await queryInterface.createTable('users', { id: Sequelize.INTEGER });
      */
 
+    //Practice
+
     await queryInterface.addColumn(
         'users',
         'email',
