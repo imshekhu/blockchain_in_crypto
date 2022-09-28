@@ -1,5 +1,6 @@
 const express = require('express');
 var mysql = require('mysql2');
+const cors = require('cors');
 const app = express();
 require('dotenv/config')
 
@@ -22,9 +23,12 @@ var con = mysql.createConnection({
 
 // Import Routes
 const postsRoutes = require('./src/routes/posts');
+const { urlencoded } = require('express');
 
 app.use('/posts', postsRoutes);
-
+// app.use(cors(corOption))
+app.use(express.json())
+app.use(express.urlencoded({extended:true}))
 
 // Middlewares
 // app.use('/posts', () =>{
