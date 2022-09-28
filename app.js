@@ -22,10 +22,15 @@ var con = mysql.createConnection({
   });
 
 // Import Routes
-const postsRoutes = require('./src/routes/posts');
+const userRoutes = require('./src/routes/users');
+const propertyBuy = require('./src/routes/property_buy')
+const propertyRent = require('./src/routes/property_rent')
 const { urlencoded } = require('express');
 
-app.use('/posts', postsRoutes);
+app.use('/user', userRoutes);
+app.use('/propertyBuy', propertyBuy);
+app.use('/propertyRent', propertyRent);
+
 // app.use(cors(corOption))
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
@@ -36,13 +41,13 @@ app.use(express.urlencoded({extended:true}))
 // });
 
 // ROUTES
-app.get('/', (req, res) => {
-    res.send('Hello World!')
-});
+// app.get('/', (req, res) => {
+//     res.send('Hello World!')
+// });
 
-app.get('/posts', (req, res) => {
-    res.send('Posts World!')
-});
+// app.get('/posts', (req, res) => {
+//     res.send('Posts World!')
+// });
 
 
 // bootup
