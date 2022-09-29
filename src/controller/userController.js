@@ -76,11 +76,21 @@ const loginUser = async (req, res, next) => {
 
 };
 
+const getAllUsers = async (req, res, next) => {
+    User.findAll({attributes: {exclude: ['password']},}).then(function(users){
+        
+        console.log(users);
+        res.send({error:false,message:'users list',data:users});
+      }).catch(function(err){
+        console.log('Oops! something went wrong, : ', err);
+      });
+}
 
 module.exports = {
     getUser,
     createUser,
     updateUser,
     deleteUser,
-    loginUser
+    loginUser,
+    getAllUsers
 }
