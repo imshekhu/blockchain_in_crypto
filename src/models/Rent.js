@@ -8,6 +8,7 @@ module.exports = (sequelize, Sequelize) => {
       autoIncrement: true,
       primaryKey: true
    },
+   title: Sequelize.STRING(100),
       location: Sequelize.STRING(100),
       price: Sequelize.STRING(100),
       owner: Sequelize.STRING(100),

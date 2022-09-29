@@ -1,11 +1,13 @@
 const expres = require('express');
 const buyController = require('../controller/buyController');
 const route = expres.Router();
+const auth = require('../middlewares/authToken')
 //const { checkDuplicateUsernameOrEmail,  checkRolesExist} = require("../middlewares/verifySignup")
 
-route.post('/create', buyController.createProperty);
+route.post('/create',auth.authenticateToken, buyController.createProperty);
 
 //router.post('/signup', checkDuplicateUsernameOrEmail,userController.createUser);
+route.get('/list_all', buyController.getAllPropertyBuy);
 
 route.get('/:id',buyController.getProperty);
 
