@@ -1,3 +1,5 @@
+const { role } = require("../database/connection");
+
 module.exports = (sequelize, Sequelize) => {
   const User = sequelize.define("users", {
     id: {
@@ -6,14 +8,14 @@ module.exports = (sequelize, Sequelize) => {
       autoIncrement: true,
       primaryKey: true
    },
-      first_name: Sequelize.STRING(100),
-      last_name: Sequelize.STRING(100),
+      firstname: Sequelize.STRING(100),
+      lastname: Sequelize.STRING(100),
       email: {
         type: Sequelize.STRING(100),
         allowNull: false
       },
       password: {
-        type: Sequelize.STRING(30),
+        type: Sequelize.STRING(100),
         allowNull: false
       }
   });

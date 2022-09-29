@@ -1,23 +1,45 @@
-const express = require('express');
+const expres = require('express');
+const buyController = require('../controller/buyController');
+const route = expres.Router();
+const auth = require('../middlewares/authToken')
+//const { checkDuplicateUsernameOrEmail,  checkRolesExist} = require("../middlewares/verifySignup")
 
-const router = express.Router();
+route.post('/create',auth.authenticateToken, buyController.createProperty);
 
-router.post('/buy',(req,res) => {
-    res.send('We are on Property buy');
-});
+//router.post('/signup', checkDuplicateUsernameOrEmail,userController.createUser);
+route.get('/list_all', buyController.getAllPropertyBuy);
 
-router.get('/get_property/:id',(req,res) => {
-    var propertyId = req.params['id']
-    res.send('We are on property retreive');
-});
+route.get('/:id',buyController.getProperty);
 
-router.put('/update/:id',(req,res) => {
-    res.send('We are on property update');
-});
+route.put('/update/:id', buyController.updateProperty);
 
-router.delete('/delete/:id',(req,res) => {
-    res.send('We are on property delete');
-});
+route.delete('/delete/:id', buyController.deleteProperty);
+
+module.exports = route;
 
 
-module.exports = router;
+
+
+// const express = require('express');
+
+// const router = express.Router();
+
+// router.post('/buy',(req,res) => {
+//     res.send('We are on Property buy');
+// });
+
+// router.get('/get_property/:id',(req,res) => {
+//     var propertyId = req.params['id']
+//     res.send('We are on property retreive');
+// });
+
+// router.put('/update/:id',(req,res) => {
+//     res.send('We are on property update');
+// });
+
+// router.delete('/delete/:id',(req,res) => {
+//     res.send('We are on property delete');
+// });
+
+
+// module.exports = router;
