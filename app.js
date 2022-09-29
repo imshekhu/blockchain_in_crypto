@@ -31,6 +31,8 @@ const { urlencoded } = require('express');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extendeded: false }));
+
+// ROUTES
 app.use('/user', userRoutes);
 app.use('/propertyBuy', propertyBuy);
 app.use('/propertyRent', propertyRent);
@@ -42,21 +44,21 @@ app.use(express.urlencoded({extended:true}))
 
 const db = require("./src/database/connection");
 const Role = db.role;
-// db.sequelize.sync({force: true}).then(() => {
-//   console.log('Drop and Resync Db');
-//   initial();
-// });
-// function initial() {
-//   Role.create({
-//     id: 1,
-//     role_name: "user"
-//   });
+db.sequelize.sync({force: true}).then(() => {
+  console.log('Drop and Resync Db');
+  initial();
+});
+function initial() {
+  Role.create({
+    id: 1,
+    role_name: "user"
+  });
 
-//   Role.create({
-//     id: 2,
-//     role_name: "admin"
-//   });
-// }
+  Role.create({
+    id: 2,
+    role_name: "admin"
+  });
+}
 // bootup
 
 app.listen(3000);

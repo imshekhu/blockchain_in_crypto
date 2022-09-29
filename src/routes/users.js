@@ -11,8 +11,8 @@ router.post('/signup', checkDuplicateEmail, userController.createUser);
 
 router.get('/:id', auth.authenticateToken, userController.getUser);
 
-router.put('/update/:id', userController.updateUser);
+router.put('/update', auth.authenticateToken, userController.updateUser);
 
-router.delete('/delete/:id', userController.deleteUser);
+router.delete('/delete', auth.authenticateToken, userController.deleteUser);
 
 module.exports = router;

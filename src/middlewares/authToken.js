@@ -25,7 +25,7 @@ var authenticateToken = async (req, res, next) => {
   
       req.user = user
   
-      console.log('User '
+      console.log('User -- :: '
       , req.user);
       next()
     })
