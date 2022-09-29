@@ -21,8 +21,8 @@ db.user = require("../models/Users")(sequelize, Sequelize);
 db.role = require("../models/Roles")(sequelize, Sequelize);
 db.permission = require("../models/Permissions")(sequelize, Sequelize);
 // db.permissions = require("../models/Roles")(sequelize, Sequelize);
-// db.propertyBuy = require("../models/Roles")(sequelize, Sequelize);
-// db.Rent = require("../models/Roles")(sequelize, Sequelize);
+db.propertyBuy = require("../models/Propertybuy")(sequelize, Sequelize);
+ db.Rent = require("../models/Rent")(sequelize, Sequelize);
 
 db.permission.belongsToMany(db.role, {
   through: "permission_roles",
@@ -41,6 +41,14 @@ db.role.belongsToMany(db.permission, {
 
 db.role.hasMany(db.user, {
     foreignKey: "roleId",
+  });
+
+  db.propertyBuy.hasMany(db.user, {
+    foreignKey: "owner",
+  });
+
+  db.Rent.hasMany(db.user, {
+    foreignKey: "owner",
   });
 
 db.user.belongsTo(db.role, {as:"role"});
