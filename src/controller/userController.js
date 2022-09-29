@@ -2,6 +2,8 @@ const bcrypt = require("bcryptjs");
 const db = require("../database/connection")
 // hello world
 User = db.user;
+
+
 const getUser = (req, res, next) => {
     var id = req.params['id']
     res.json({message: `Hello User ${id}`});
@@ -9,12 +11,14 @@ const getUser = (req, res, next) => {
 
 const createUser = async (req, res) => {
     // Save User to Database
+    const salt = await bcrypt.genSalt(10);
+    // now we set user password to hashed password
     try {
         const user = await User.create({
           firstname: req.body["firstname"],
           lastname: req.body["lastname"],
           email: req.body["email"],
-          password: bcrypt.hashSync(req.body["password"], 8),
+          password: await bcrypt.hash(req.body["password"], salt),
         });
         const result = user.setRole(req.body.role);
         res.json({message: `createUser User `});
@@ -40,6 +44,12 @@ const deleteUser = (req, res, next) => {
 const loginUser = (req, res, next) => {
     var body = req.body;
     res.json({message: `loginUser User `});
+
+    const email = req.body.email;
+    const password = req.body.password;
+    
+
+
 };
 
 

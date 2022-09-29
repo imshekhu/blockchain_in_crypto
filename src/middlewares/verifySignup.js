@@ -2,7 +2,7 @@ const db = require("../database/connection");
 const ROLES = db.ROLES;
 const User = db.user;
 
-checkDuplicateUsernameOrEmail =  async (req, res, next) => {
+checkDuplicateEmail =  async (req, res, next) => {
     try {
         // Username
         let user = await User.findOne({
@@ -13,7 +13,7 @@ checkDuplicateUsernameOrEmail =  async (req, res, next) => {
 
         if (user) {
             return res.status(400).send({
-              message: "Failed! Username is already in use!"
+              message: "Failed! Email is already in use!"
             });
           }
         
@@ -22,7 +22,7 @@ next();
     
     catch {
         return res.status(500).send({
-      message: "Unable to validate Username!"
+      message: "Unable to validate Email!"
     });
     }
 }
@@ -42,7 +42,7 @@ checkRolesExist = (req, res, ) => {
 
 
   const verifySignUp = {
-    checkDuplicateUsernameOrEmail,
+    checkDuplicateEmail,
     checkRolesExist
   };
   module.exports = verifySignUp;
