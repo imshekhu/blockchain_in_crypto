@@ -1,11 +1,12 @@
 const express = require('express');
 const userController = require('../controller/userController');
 const router = express.Router();
-const { checkDuplicateUsernameOrEmail,  checkRolesExist} = require("../middlewares/verifySignup")
+const { checkDuplicateEmail,  checkRolesExist} = require("../middlewares/verifySignup")
+const checkForEmail = require("../middlewares/verifyLogin")
 
-router.post('/login', userController.loginUser);
+router.post('/login',checkForEmail, userController.loginUser);
 
-router.post('/signup', checkDuplicateUsernameOrEmail,userController.createUser);
+router.post('/signup', checkDuplicateEmail, userController.createUser);
 
 router.get('/:id',userController.getUser);
 
