@@ -36,23 +36,23 @@ app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 
 
+const db = require("./src/database/connection");
+const Role = db.role;
+db.sequelize.sync({force: true}).then(() => {
+  console.log('Drop and Resync Db');
+  initial();
+});
+function initial() {
+  Role.create({
+    id: 1,
+    role_name: "user"
+  });
 
-
-// Middlewares
-// app.use('/posts', () =>{
-//     return console.log('Hello This is middleware');
-// });
-
-// ROUTES
-// app.get('/', (req, res) => {
-//     res.send('Hello World!')
-// });
-
-// app.get('/posts', (req, res) => {
-//     res.send('Posts World!')
-// });
-
-
+  Role.create({
+    id: 2,
+    role_name: "admin"
+  });
+}
 // bootup
 
 app.listen(3000);
