@@ -1,8 +1,10 @@
 const bcrypt = require("bcryptjs");
 const db = require("../database/connection")
-// hello world
-User = db.user;
+let generateAccessToken = require('../middlewares/authToken');
+const { use } = require("../routes/users");
+const {find_user} = require('../database/userDatabaseOp');
 
+User = db.user;
 
 const getUser = (req, res, next) => {
     var id = req.params['id']
@@ -41,14 +43,14 @@ const deleteUser = (req, res, next) => {
     res.json({message: `deleteUser User ${id}`});
 };
 
-const loginUser = (req, res, next) => {
+const loginUser = async (req, res, next) => {
     var body = req.body;
-    res.json({message: `loginUser User `});
 
-    const email = req.body.email;
-    const password = req.body.password;
-    
+    var user = await find_user(req.body["email"])
 
+    const token = generateAccessToken(user.email)
+
+    res.json({message: `User Logged in successfully`, data: user["dataValues"], token:token });
 
 };
 
