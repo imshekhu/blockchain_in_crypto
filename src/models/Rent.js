@@ -1,17 +1,18 @@
-const Sequelize = require('sequelize');
+const { Rent } = require("../database/connection");
 
-
-module.exports= sequelize.define("property", {
- id: {
-    type: Sequelize.INTEGER(11),
-    allowNull: false,
-    autoIncrement: true,
-    primaryKey: true
- },
-    location: Sequelize.STRING(100),
-    owner: Sequelize.STRING(100),
-    price: Sequelize.STRING(100),
-    Size: Sequelize.STRING(100),
-    ContractLength: Sequelize.STRING(100),
-    
-})
+module.exports = (sequelize, Sequelize) => {
+  const Property = sequelize.define("rent", {
+    id: {
+      type: Sequelize.INTEGER(11),
+      allowNull: false,
+      autoIncrement: true,
+      primaryKey: true
+   },
+      location: Sequelize.STRING(100),
+      price: Sequelize.STRING(100),
+      owner: Sequelize.STRING(100),
+      size: Sequelize.STRING(100),
+      contract: Sequelize.STRING(100)
+  });
+  return Property;
+};
