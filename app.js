@@ -35,6 +35,9 @@ app.use('/propertyRent', propertyRent);
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 
+
+
+
 // Middlewares
 // app.use('/posts', () =>{
 //     return console.log('Hello This is middleware');

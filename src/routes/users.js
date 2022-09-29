@@ -1,25 +1,15 @@
 const express = require('express');
-
+const userController = require('../controller/userController');
 const router = express.Router();
 
-router.post('/login',(req,res) => {
-    res.send('We are on login');
-});
+router.post('/login', userController.loginUser);
 
-router.post('/signup',(req,res) => {
-    res.send('We are on signup');
-});
+router.post('/signup', userController.createUser);
 
-router.get('/:id',(req,res) => {
-    res.send('We are on user retrieve');
-});
+router.get('/:id',userController.getUser);
 
-router.put('/update/:id', (req,res) => {
-    res.send('We are on user retrieve');
-});
+router.put('/update/:id', userController.updateUser);
 
-router.delete('/update/:id', (req,res) => {
-    res.send('We are on user retrieve');
-});
+router.delete('/delete/:id', userController.deleteUser);
 
 module.exports = router;
