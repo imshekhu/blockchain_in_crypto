@@ -1,6 +1,6 @@
 const bcrypt = require("bcryptjs");
 const db = require("../database/connection")
-let generateAccessToken = require('../middlewares/authToken');
+const auth = require('../middlewares/authToken')
 const userDbOperations = require('../database/userDatabaseOp');
 
 User = db.user;
@@ -70,7 +70,7 @@ const loginUser = async (req, res, next) => {
 
     var user = await find_user(req.body["email"])
 
-    const token = generateAccessToken(user.email)
+    const token = auth.generateAccessToken(user.email)
 
     res.json({message: `User Logged in successfully`, data: user["dataValues"], token:token });
 
