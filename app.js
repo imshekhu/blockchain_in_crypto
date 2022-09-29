@@ -2,6 +2,7 @@ const express = require('express');
 var mysql = require('mysql2');
 const cors = require('cors');
 const app = express();
+const bodyParser = require('body-parser');
 require('dotenv/config')
 
 // DB connection
@@ -22,11 +23,14 @@ var con = mysql.createConnection({
   });
 
 // Import Routes
+
 const userRoutes = require('./src/routes/users');
 const propertyBuy = require('./src/routes/property_buy')
 const propertyRent = require('./src/routes/property_rent')
 const { urlencoded } = require('express');
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extendeded: false }));
 app.use('/user', userRoutes);
 app.use('/propertyBuy', propertyBuy);
 app.use('/propertyRent', propertyRent);
@@ -38,21 +42,21 @@ app.use(express.urlencoded({extended:true}))
 
 const db = require("./src/database/connection");
 const Role = db.role;
-db.sequelize.sync({force: true}).then(() => {
-  console.log('Drop and Resync Db');
-  // initial();
-});
-function initial() {
-  Role.create({
-    id: 1,
-    role_name: "user"
-  });
+// db.sequelize.sync({force: true}).then(() => {
+//   console.log('Drop and Resync Db');
+//   initial();
+// });
+// function initial() {
+//   Role.create({
+//     id: 1,
+//     role_name: "user"
+//   });
 
-  Role.create({
-    id: 2,
-    role_name: "admin"
-  });
-}
+//   Role.create({
+//     id: 2,
+//     role_name: "admin"
+//   });
+// }
 // bootup
 
 app.listen(3000);
