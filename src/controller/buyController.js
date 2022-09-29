@@ -11,7 +11,7 @@ propertybuy = db.propertyBuy;
 
 var getProperty = async (req, res, next) => {
     var id = req.params.id
-    var user = await buyDbOperations.find_property_by_id(id);
+    var property = await buyDbOperations.find_property_by_id(id);
     res.json({
         property_location: property.location,
         price: property.price,
