@@ -1,14 +1,18 @@
 const bcrypt = require("bcryptjs");
 const db = require("../database/connection")
 let generateAccessToken = require('../middlewares/authToken');
-const { use } = require("../routes/users");
-const {find_user} = require('../database/userDatabaseOp');
+const userDbOperations = require('../database/userDatabaseOp');
 
 User = db.user;
 
-const getUser = (req, res, next) => {
-    var id = req.params['id']
-    res.json({message: `Hello User ${id}`});
+var getUser = async (req, res, next) => {
+    var id = req.params.id
+    var user = await userDbOperations.find_user_by_id(id);
+    res.json({
+        user_email: user.email,
+        firstname: user.firstname,
+        lastname: user.lastname
+    });
 };
 
 const createUser = async (req, res) => {
@@ -33,14 +37,32 @@ const createUser = async (req, res) => {
     
 };
 
-const updateUser = (req, res, next) => {
-    var body = req.body;
-    res.json({message: `updateUser User ${id}`});
+const updateUser = async (req, res, next) => {
+    var email = req.user;
+    try {
+        updated_user = await User.update(
+            { firstname: req.body["firstname"],
+            lastname: req.body["lastname"],
+         },
+            { where: { email: email } }
+          )
+            
+        res.json({message: `Updated ${email}`});
+    } catch (error) {
+        console.log(error)
+        res.status(500).json({ message: `Error : ${error}`})
+    }
+    
 };
 
-const deleteUser = (req, res, next) => {
-    var body = req.body;
-    res.json({message: `deleteUser User ${id}`});
+const deleteUser = async (req, res, next) => {
+    await User.destroy(
+        {where: {
+            email:req.user
+        }}
+    
+        ).catch(error=>console.log(error))
+        res.json({message: `User ${req.user}`});
 };
 
 const loginUser = async (req, res, next) => {
