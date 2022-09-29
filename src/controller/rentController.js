@@ -28,9 +28,10 @@ const createProperty = async (req, res) => {
     // Save User to Database
     try {
         const propertyrent_object = await propertyrent.create({
-          location: req.body["location"],
+        title: req.body["title"],
+        location: req.body["location"],
+        owner: req.user,
           price: req.body["price"],
-          owner: req.body["owner"],
           size: req.body["size"],
           contract: req.body["contract"]
         });
@@ -60,11 +61,21 @@ const deleteProperty = (req, res, next) => {
 //     res.json({message: `login Property `});
 // };
 
+const getAllPropertyRent = (req, res, next) => {
+    propertyrent.findAll().then(function(rent_properties){
+        
+        console.log(rent_properties);
+        res.send({error:false,message:'Property Rent list',data:rent_properties});
+      }).catch(function(err){
+        console.log('Oops! something went wrong, : ', err);
+      });
+};
 
 module.exports = {
     getProperty,
     createProperty,
     updateProperty,
     deleteProperty,
+    getAllPropertyRent
     
 }

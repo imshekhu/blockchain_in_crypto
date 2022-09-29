@@ -1,11 +1,15 @@
 const expres = require('express');
 const rentController = require('../controller/rentController');
 const route = expres.Router();
+const auth = require('../middlewares/authToken')
 //const { checkDuplicateUsernameOrEmail,  checkRolesExist} = require("../middlewares/verifySignup")
 
-route.post('/create', rentController.createProperty);
+route.post('/create', auth.authenticateToken, rentController.createProperty);
 
 //router.post('/signup', checkDuplicateUsernameOrEmail,userController.createUser);
+
+route.get('/list_all', rentController.getAllPropertyRent);
+
 
 route.get('/:id',rentController.getProperty);
 

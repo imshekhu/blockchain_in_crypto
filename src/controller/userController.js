@@ -27,7 +27,7 @@ const createUser = async (req, res) => {
           password: await bcrypt.hash(req.body["password"], salt),
         });
         const result = user.setRole(req.body.role);
-        res.json({message: `createUser User `});
+        res.json({message: `User Created ${user.firstname}`});
 
     }
     catch (error) {

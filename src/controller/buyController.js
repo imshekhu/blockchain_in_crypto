@@ -26,13 +26,14 @@ const createProperty = async (req, res) => {
     // Save User to Database
     try {
         const property = await propertybuy.create({
+        title: req.body["title"],
           location: req.body["location"],
-          price: req.body["price"],
-          owner: req.body["owner"],
+          owner: req.user,
           size: req.body["size"],
+          price: req.body["price"]
         });
         //const result = property.setRole(req.body.role);
-        res.json({message: `create Property `});
+        res.json({message: `create Property `, id: property.id});
 
     }
     catch (error) {
@@ -52,6 +53,15 @@ const deleteProperty = (req, res, next) => {
     res.json({message: `delete Property ${id}`});
 };
 
+const getAllPropertyBuy = (req, res, next) => {
+    propertybuy.findAll().then(function(rent_properties){
+        
+        console.log(rent_properties);
+        res.send({error:false,message:'Property Rent list',data:rent_properties});
+      }).catch(function(err){
+        console.log('Oops! something went wrong, : ', err);
+      });
+};
 // const loginProperty = (req, res, next) => {
 //     var body = req.body;
 //     res.json({message: `login Property `});
@@ -63,5 +73,6 @@ module.exports = {
     createProperty,
     updateProperty,
     deleteProperty,
+    getAllPropertyBuy
     
 }
