@@ -1,7 +1,7 @@
 const bcrypt = require("bcryptjs");
 const db = require("../database/connection")
 //let generateAccessToken = require('../middlewares/authToken');
-const rentDbOperations = require('../database/rentDatabaseOp.js');
+const rentDbOperations = require('../database/rentDatabaseOp');
 // hello world
 propertyrent = db.Rent;
 // const getProperty = (req, res, next) => {

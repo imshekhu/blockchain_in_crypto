@@ -9,10 +9,15 @@ router.post('/login',checkForEmail, userController.loginUser);
 
 router.post('/signup', checkDuplicateEmail, userController.createUser);
 
-router.get('/:id', auth.authenticateToken, userController.getUser);
+
 
 router.put('/update', auth.authenticateToken, userController.updateUser);
 
 router.delete('/delete', auth.authenticateToken, userController.deleteUser);
+
+router.get('/list_all', auth.authenticateToken, userController.getAllUsers);
+
+router.get('/:id', auth.authenticateToken, userController.getUser);
+
 
 module.exports = router;
