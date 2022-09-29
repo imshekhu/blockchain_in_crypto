@@ -43,7 +43,7 @@ db.role.hasMany(db.user, {
     foreignKey: "roleId",
   });
 
-db.user.belongsTo(db.role);
+db.user.belongsTo(db.role, {as:"role"});
 
 db.ROLES = ["user", "admin"];
 

@@ -17,7 +17,7 @@ checkDuplicateUsernameOrEmail =  async (req, res, next) => {
             });
           }
         
-
+next();
     }
     
     catch {
@@ -43,6 +43,6 @@ checkRolesExist = (req, res, ) => {
 
   const verifySignUp = {
     checkDuplicateUsernameOrEmail,
-    checkRoleExist
+    checkRolesExist
   };
   module.exports = verifySignUp;
