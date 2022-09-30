@@ -5,7 +5,7 @@ https://docs.google.com/presentation/d/1a0j0zfAmiJ-SNJe1M3r6VIGe9_YIdjPNXpeTr-Dw
 Github:
 https://github.com/imshekhu/blockchain_in_estate - Main branch has the Running code.
 
-Team :
+Team Members:
 Shourya Sharma (shouryasharma80@gmail.com)
 Amin Imtiaz (amin.imtiazai@gmail.com)
 Kunwarpal Singh Sethi (kunwarpalsinghsethi134@gmail.com)
