@@ -1,0 +1,340 @@
+{
+	"info": {
+		"_postman_id": "e01685f2-4ac9-4725-802f-1e283fed934a",
+		"name": "Blockchain",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "SIgnup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"firstname\":\"firstname\",\n\"lastname\":\"sharma\",\n\"password\": \"axbc123\",\n\"email\":\"taest@132\",\n\"role\":1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/user/signup",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"password\": \"axbc123\",\n    \"email\": \"taest@132\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/user/login",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get User",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.dGFlc3RAMTMy.ZWumsKK0escy07j6P3xVKZT9y0iYoya_HpvuEMu-uIc",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/user/1",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.dGFlc3RAMTMy.ZWumsKK0escy07j6P3xVKZT9y0iYoya_HpvuEMu-uIc",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/user/delete",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.dGVzdEAxMzI.a_ttNkERNb9BGYPIdl6pNXFdwbboLSZGhNTyyf1M6fE",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"firstname\":\"fiassrstname\",\n\"lastname\" : \"alastname\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/user/update",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List ALL users",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.dGFlc3RAMTMy.ZWumsKK0escy07j6P3xVKZT9y0iYoya_HpvuEMu-uIc",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/user/list_all",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								"list_all"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Properties",
+			"item": [
+				{
+					"name": "Buy GET",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"location\":\"loggcat\",\r\n    \"price\":\"p123\",\r\n    \"owner\": \"owner\",\r\n    \"size\" :\"size\",\r\n    \"contract\" : \"contract\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/propertyBuy/1",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"propertyBuy",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Rent Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.dGFlc3RAMTMy.ZWumsKK0escy07j6P3xVKZT9y0iYoya_HpvuEMu-uIc",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"title\": \"2BHK\",\r\n    \"location\":\"Missisauga\",\r\n    \"price\":\"p123\",\r\n    \"owner\": \"owner\",\r\n    \"size\" :\"size\",\r\n    \"contract\" : \"contract\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/propertyRent/create",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"propertyRent",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Rent GET",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/propertyRent/2",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"propertyRent",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buy Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.dGFlc3RAMTMy.ZWumsKK0escy07j6P3xVKZT9y0iYoya_HpvuEMu-uIc",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\" : \"1 bhk\",\r\n    \"location\":\"Buy 1\",\r\n    \"price\":\"12900\",\r\n    \"size\" :\"Size\",\r\n    \"contract\" : \"contract\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/propertyBuy/create",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"propertyBuy",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LIST ALL Rented",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/propertyRent/list_all",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"propertyRent",
+								"list_all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LIST ALL BOUGHTABLE",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/propertyBuy/list_all",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"propertyBuy",
+								"list_all"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

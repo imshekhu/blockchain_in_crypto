@@ -26,7 +26,7 @@ module.exports = async (req, res, next) => {
           }
         else {
           return res.status(400).send({
-            message: "Email Doesnot Exists"
+            message: "Email or Password Doesnt Match"
           });
         }
 

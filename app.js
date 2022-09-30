@@ -30,7 +30,7 @@ const propertyRent = require('./src/routes/property_rent')
 const { urlencoded } = require('express');
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extendeded: false }));
+// app.use(bodyParser.urlencoded({ extendeded: false }));
 
 // ROUTES
 app.use('/user', userRoutes);
@@ -42,8 +42,8 @@ app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 
 
-const db = require("./src/database/connection");
-const Role = db.role;
+// const db = require("./src/database/connection");
+// const Role = db.role;
 // db.sequelize.sync({force: true}).then(() => {
 //   console.log('Drop and Resync Db');
 //   initial();

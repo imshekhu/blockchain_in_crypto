@@ -11,8 +11,9 @@ propertybuy = db.propertyBuy;
 
 var getProperty = async (req, res, next) => {
     var id = req.params.id
-    var user = await buyDbOperations.find_property_by_id(id);
+    var property = await buyDbOperations.find_property_by_id(id);
     res.json({
+        title: property.title,
         property_location: property.location,
         price: property.price,
         owner: property.owner,
@@ -57,7 +58,7 @@ const getAllPropertyBuy = (req, res, next) => {
     propertybuy.findAll().then(function(rent_properties){
         
         console.log(rent_properties);
-        res.send({error:false,message:'Property Rent list',data:rent_properties});
+        res.send({error:false,message:'Property BUY list',data:rent_properties});
       }).catch(function(err){
         console.log('Oops! something went wrong, : ', err);
       });
