@@ -27,6 +27,8 @@ var con = mysql.createConnection({
 const userRoutes = require('./src/routes/users');
 const propertyBuy = require('./src/routes/property_buy')
 const propertyRent = require('./src/routes/property_rent')
+const  customer_end = require('./src/routes/Customer_end.js')
+
 const { urlencoded } = require('express');
 
 app.use(bodyParser.json());
@@ -36,6 +38,8 @@ app.use(bodyParser.json());
 app.use('/user', userRoutes);
 app.use('/propertyBuy', propertyBuy);
 app.use('/propertyRent', propertyRent);
+app.use('/customer', customer_end);
+
 
 // app.use(cors(corOption))
 app.use(express.json())
