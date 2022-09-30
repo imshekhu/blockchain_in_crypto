@@ -1,6 +1,6 @@
 
 Presentation:
-https://docs.google.com/presentation/d/1zSpBIAHUmBb3boQyrkAzQvQgpjXU0tI2AfDL0SBdw24/edit#slide=id.g1f87997393_0_1544
+https://docs.google.com/presentation/d/1a0j0zfAmiJ-SNJe1M3r6VIGe9_YIdjPNXpeTr-DwPSk/edit#slide=id.g1f87997393_0_782
 
 Github:
 https://github.com/imshekhu/blockchain_in_estate - Main branch has the Running code.
@@ -9,4 +9,4 @@ Team :
 Shourya Sharma (shouryasharma80@gmail.com)
 Amin Imtiaz (amin.imtiazai@gmail.com)
 Kunwarpal Singh Sethi (kunwarpalsinghsethi134@gmail.com)
-Kumud Kohli(kumudkohli1816@gmail.com)
+Kumud (kkumuddkohli@gmail.com)
